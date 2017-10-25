@@ -7,6 +7,7 @@ RUN cd /root/stream && \
     gcc -O2 stream.c              -o out/stream.100M.1C && \
     gcc -O2 stream.c -DNCYCLES=2  -o out/stream.100M.2C && \
     gcc -O2 stream.c -DNCYCLES=4  -o out/stream.100M.4C && \
+    gcc -O2 stream.c -DNCYCLES=6  -o out/stream.100M.6C && \
     gcc -O2 stream.c -DNCYCLES=8  -o out/stream.100M.8C && \
     gcc -O2 stream.c -DNCYCLES=10 -o out/stream.100M.10C && \
     gcc -O2 stream.c -DNCYCLES=12 -o out/stream.100M.12C && \
