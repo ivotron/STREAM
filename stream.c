@@ -332,7 +332,33 @@ main()
 #else
 #pragma omp parallel for
 	for (j=0; j<STREAM_ARRAY_SIZE; j++)
+#ifndef NADDS
 	    c[j] = a[j]+b[j];
+#elif NADDS==2
+	    c[j] = a[j]+b[j]+a[j]+b[j];
+#elif NADDS==4
+	    c[j] = a[j]+b[j]+a[j]+b[j]+a[j]+b[j];
+#elif NADDS==6
+	    c[j] = a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j];
+#elif NADDS==8
+	    c[j] = a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j];
+#elif NADDS==10
+	    c[j] = a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j];
+#elif NADDS==12
+	    c[j] = a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j];
+#elif NADDS==14
+	    c[j] = a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j];
+#elif NADDS==16
+	    c[j] = a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j];
+#elif NADDS==18
+	    c[j] = a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j];
+#elif NADDS==20
+	    c[j] = a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j];
+#elif NADDS==30
+	    c[j] = a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j]+a[j]+b[j];
+#else
+  #error Unsupported value of NADDS
+#endif
 #endif
 	times[2][k] = mysecond() - times[2][k];
 	
@@ -372,7 +398,7 @@ main()
     printf(HLINE);
 
     /* --- Check Results --- */
-    checkSTREAMresults();
+    //checkSTREAMresults();
     printf(HLINE);
 
     return 0;
